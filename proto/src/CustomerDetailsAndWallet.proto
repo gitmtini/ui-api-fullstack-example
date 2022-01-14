@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package io.awesome.proto;
+
+option java_outer_classname="WalletProtos";
+
+message Wallet{
+
+    string privateKeyHex = 1;
+    string initializationVectorHex = 2;
+    bool encrypted = 3;
+    string publicKeyHex = 4;
+    string id = 5;
+	string id2 = 6;
+	repeated bytes transactionOutputs = 7; 
+	
+}
+
+message CustomerDetails{
+
+    string id = 1;
+	string name = 2;
+	string telephone = 3;
+	string email = 4;
+	string userName = 5;
+	
+}

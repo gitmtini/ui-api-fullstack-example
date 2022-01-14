@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package io.awesome.proto;
+
+option java_outer_classname="RequestResponseProtos";
+
+message RequestResponse{
+
+    message Request{
+        string jsonRequest = 1;
+        bytes data = 2;
+        bytes entries = 3;
+    }
+
+    message Response{
+        string jsonResponse = 1;
+        bytes data = 2;
+        bytes entries = 3;
+    }
+
+    Request request  = 1;
+    Response response = 2;
+
+}

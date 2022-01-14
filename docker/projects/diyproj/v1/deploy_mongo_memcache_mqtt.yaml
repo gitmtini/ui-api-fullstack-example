@@ -1,0 +1,65 @@
+version: "3.0"
+
+services:
+    
+  mongo:
+    image: mongo:latest
+    restart: always
+    #environment:
+    #  MONGO_INITDB_ROOT_USERNAME: mongouser
+    #  MONGO_INITDB_ROOT_PASSWORD: mongopass
+    #command: mongod --auth 
+    ports:
+      - 27017:27017      
+    networks:
+      - db 
+    volumes:
+      - mongo-persistence:/data/db    
+     # - ./mongo_conf/init_createTestUser.js 
+      
+  mongo-express:
+    image: mongo-express:latest
+    restart: always
+    ports:
+      - 8083:8081
+    #environment:
+    #  ME_CONFIG_MONGODB_ADMINUSERNAME: mongouser
+    #  ME_CONFIG_MONGODB_ADMINPASSWORD: mongopass                              
+    networks:
+      - db          
+
+  memcached:
+    image: memcached
+    ports:
+      - 11211:11211    
+    networks:
+      - cache  
+      
+#  mosquitto:
+#    image: prelimtek/prelimtek-mosquitto:latest
+#    ports:
+#     #- 1883:1883
+#     #- 8883:8443
+#     - 9003:9003
+#     #- 9443:9443
+#     - 8088:8080
+#    command: "bash -c chmod 0766  /var/log/mosquitto.log" 
+#    networks:
+#      - cache  
+#    volumes:
+#     - ./mosquitto_conf:/etc/mosquitto/conf.d   
+#     - ./mosquitto_conf/local_tls/ca:/mosquitto_conf/ca
+#     - ./mosquitto_conf/local_tls/broker:/mosquitto_conf/broker       
+                  
+networks:
+    db:
+      driver: bridge   
+    blockchain:
+      driver: bridge 
+    cache:
+      driver: bridge   
+         
+volumes:
+  mongo-persistence:
+  sawtooth-persistence:
+  #  external: true         

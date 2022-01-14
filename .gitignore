@@ -1,0 +1,10 @@
+/.metadata/
+**/bin/
+**/target/
+**.classpath
+**.project
+**.settings/
+**.metadata/
+**.idea/
+**/build/
+**.apk

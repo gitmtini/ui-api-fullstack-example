@@ -1,0 +1,7 @@
+context.path=/awesome/api/v1
+## docker
+#service.port=8080
+## local
+service.port=8080
+service.tls.port=8443
+service.address=0.0.0.0
