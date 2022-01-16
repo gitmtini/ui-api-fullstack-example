@@ -3,7 +3,7 @@ Example UI project for web and mobile devices to demo api connectivity, protobuf
 
 ### Subprojects and modules:
 
-- [ui-reactnative](ui) for web and mobile ui 
+- [ui](ui-reactnative) for web and mobile ui 
 - [api](api) for web services and datasource connectivity
 - [apiproxy](apiproxy) for added api security by obfuscation 
 - [proto](proto) for data integrity and schema documentation  
